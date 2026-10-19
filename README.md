@@ -1,5 +1,12 @@
 # Ponto de Corte
 
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black&style=flat-square)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white&style=flat-square)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white&style=flat-square)
+![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white&style=flat-square)
+![Idioma](https://img.shields.io/badge/idioma-pt--BR-2c7a5e?style=flat-square)
+![Status](https://img.shields.io/badge/status-prot%C3%B3tipo-f3d34a?style=flat-square)
+
 > Plataforma de estudos para concursos públicos: questões comentadas, simulados, flashcards com revisão espaçada, plano semanal e materiais de leitura — tudo em português, com uma identidade visual própria inspirada em papel, edital e marca-texto.
 
 ![Painel](docs/painel.png)
@@ -96,6 +103,20 @@ src/
 ## Design
 
 Identidade de papelaria/edital: fundo de papel quente, sidebar verde-tinta, marca-texto amarelo e acentos em coral e verde. Tipografia **Bricolage Grotesque** (títulos) + **Archivo** (texto). Os tokens ficam em `src/styles/base.css`, com tema escuro aplicado via `data-theme`.
+
+## Roadmap
+
+Ideias mapeadas para a evolução do protótipo, sem ordem definida:
+
+- [ ] Backend e contas reais, com sincronização do progresso entre dispositivos
+- [ ] Importação de questões por edital/planilha e banco de questões ampliado
+- [ ] Simulados com nota ponderada por disciplina, espelho da prova e ranking
+- [ ] PWA offline e atalhos de revisão rápida no celular
+- [ ] Relatórios de desempenho exportáveis em PDF/CSV
+- [ ] Trilhas por concurso (Banco do Brasil, Caixa, Banestes…) com priorização automática
+- [ ] Lembretes de revisão espaçada por e-mail/push
+- [ ] Discursivas e redação com correção assistida
+- [ ] Testes automatizados (Vitest + Playwright) e pipeline de CI no GitHub Actions
 
 ## Aviso
 
