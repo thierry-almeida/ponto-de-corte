@@ -1,0 +1,592 @@
+/* ---------- study plan ---------- */
+.plan-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 18px;
+  align-items: start;
+}
+
+.plan-main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.plan-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 14px 17px;
+}
+
+.plan-week-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plan-week-nav > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 122px;
+}
+
+.plan-week-nav > div span {
+  color: var(--muted);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.plan-week-nav > div strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+.plan-week-nav .text-button {
+  margin-left: 3px;
+}
+
+.plan-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 170px;
+  max-width: 290px;
+}
+
+.plan-toolbar-stat {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.plan-toolbar-stat span {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.plan-toolbar-stat strong {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: -0.03em;
+}
+
+.plan-toolbar-progress {
+  flex: 1;
+}
+
+/* week */
+.plan-week {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--sheet);
+  overflow: hidden;
+}
+
+.plan-day {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 18px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.plan-day:last-child {
+  border-bottom: 0;
+}
+
+.plan-day-today {
+  background: linear-gradient(90deg, rgba(243, 211, 74, 0.14), transparent 60%);
+}
+
+.plan-day-past {
+  opacity: 0.72;
+}
+
+.plan-day-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.plan-day-weekday {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.plan-day-head strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.plan-day-head em {
+  margin-top: 3px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--yellow);
+  color: var(--solid-ink);
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.plan-day-count {
+  margin-top: 4px;
+  color: var(--muted-2);
+  font-size: 9px;
+}
+
+.plan-day-blocks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.plan-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 58px;
+  padding: 8px 10px 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--sheet);
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.plan-block:hover {
+  border-color: var(--line-strong);
+  background: var(--sheet-2);
+}
+
+.plan-block.is-done {
+  background: var(--sheet-2);
+  opacity: 0.62;
+}
+
+.plan-block.is-done .plan-block-copy strong {
+  text-decoration: line-through;
+}
+
+.plan-block-color {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+}
+
+.plan-block-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  background: var(--sheet-2);
+  color: var(--muted);
+}
+
+.plan-block-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.plan-block-copy strong {
+  overflow: hidden;
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.plan-block-copy span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 9px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.plan-block-copy em {
+  display: none;
+  color: var(--muted-2);
+  font-size: 8.5px;
+  font-style: normal;
+}
+
+.plan-block-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--sheet);
+}
+
+.plan-block-check.checked {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.plan-day-free {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 54px;
+  padding-left: 2px;
+}
+
+.plan-day-free span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.plan-day-free p {
+  color: var(--muted-2);
+  font-size: 9.5px;
+}
+
+.plan-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px;
+  background: var(--yellow-soft);
+  border-color: rgba(23, 34, 28, 0.12);
+  box-shadow: none;
+}
+
+.plan-method-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--solid-ink);
+}
+
+.plan-method > div:nth-child(2) {
+  flex: 1;
+  min-width: 240px;
+}
+
+.plan-method h3 {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.plan-method p {
+  margin-top: 4px;
+  max-width: 84ch;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.plan-method .text-button {
+  align-self: flex-start;
+  color: var(--ink-3);
+}
+
+/* sidebar */
+.plan-side {
+  position: sticky;
+  top: 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-summary {
+  padding: 19px;
+}
+
+.plan-summary-ring {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 0 16px;
+}
+
+.plan-summary-ring .ring-label strong {
+  font-size: 22px;
+}
+
+.plan-summary-ring > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-summary-ring > div > strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: -0.03em;
+}
+
+.plan-summary-ring > div > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.plan-summary-ring em {
+  margin-top: 4px;
+  color: var(--muted-2);
+  font-size: 9.5px;
+  font-style: normal;
+}
+
+.plan-summary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+}
+
+.plan-summary-stats span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+.plan-summary-stats svg {
+  color: var(--muted-2);
+}
+
+.plan-summary-actions {
+  padding-top: 12px;
+}
+
+.plan-summary-actions .btn {
+  width: 100%;
+}
+
+.plan-focus {
+  padding: 18px;
+}
+
+.plan-focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-focus-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+
+.plan-focus-head span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.plan-focus-head i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.plan-focus-head strong {
+  color: var(--muted);
+  font-size: 9.5px;
+}
+
+.plan-config {
+  padding: 18px;
+  scroll-margin-top: 70px;
+}
+
+.plan-config .field-label {
+  margin-top: 14px;
+}
+
+.weekday-picker,
+.hours-picker {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.weekday-picker button,
+.hours-picker button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 31px;
+  padding: 0 5px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--sheet);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.weekday-picker button:hover,
+.hours-picker button:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.weekday-picker button.active,
+.hours-picker button.active {
+  border-color: var(--solid-ink);
+  background: var(--yellow);
+  color: var(--solid-ink);
+}
+
+.plan-config .btn-block {
+  margin-top: 17px;
+}
+
+.plan-config-note {
+  margin-top: 7px;
+  color: var(--muted-2);
+  font-size: 9.5px;
+  text-align: center;
+}
+
+.plan-weights {
+  padding: 18px;
+}
+
+.plan-weights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+.plan-weights-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.weight-dots {
+  display: flex;
+  gap: 2px;
+}
+
+.weight-dots i {
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.weight-dots i.filled {
+  background: var(--ink-3);
+}
+
+@media (max-width: 1200px) {
+  .plan-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+
+  .plan-day-blocks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .plan-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-side {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .plan-config {
+    grid-row: span 2;
+  }
+
+  .plan-weights {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .plan-side {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-config {
+    grid-row: auto;
+  }
+
+  .plan-day {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .plan-day-head strong {
+    font-size: 16px;
+  }
+
+  .plan-day-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-toolbar {
+    align-items: flex-start;
+  }
+
+  .plan-toolbar-right {
+    max-width: none;
+  }
+
+  .plan-week-nav > div {
+    min-width: 104px;
+  }
+}

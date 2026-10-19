@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap');
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/dashboard.css';
+@import './styles/questions.css';
+@import './styles/practice.css';
+@import './styles/flashcards.css';
+@import './styles/notebooks.css';
+@import './styles/plan.css';
+@import './styles/materials.css';
+@import './styles/courses.css';
+@import './styles/account.css';
+@import './styles/auth.css';
+@import './styles/responsive.css';

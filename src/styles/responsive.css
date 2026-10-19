@@ -1,0 +1,128 @@
+/* ---------- global responsive adjustments ---------- */
+@media (max-width: 1280px) {
+  .page {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .site-footer,
+  .trial-inner {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .page-title {
+    font-size: 34px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+  }
+
+  .page-actions {
+    width: 100%;
+  }
+
+  .page-actions .btn {
+    flex: 1;
+  }
+
+  .section-title {
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .dashboard-callout {
+    align-items: flex-start;
+  }
+
+  .dashboard-callout .btn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 18px 13px 38px;
+  }
+
+  .page-title {
+    font-size: 31px;
+  }
+
+  .page-actions .btn {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .section-title {
+    flex-wrap: wrap;
+  }
+
+  .toast {
+    bottom: 14px;
+    width: calc(100% - 26px);
+    max-width: none;
+  }
+
+  .dialog {
+    padding: 21px;
+  }
+
+  .dialog-actions .btn {
+    flex: 1;
+  }
+}
+
+@media print {
+  .sidebar,
+  .trial-bar,
+  .mobile-bar,
+  .site-footer,
+  .page-actions,
+  .material-side,
+  .material-pager,
+  .material-reader-actions,
+  .auth-panel,
+  .toast {
+    display: none !important;
+  }
+
+  .app-main {
+    margin-left: 0 !important;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0 !important;
+  }
+
+  .material-detail-layout {
+    display: block;
+  }
+
+  .material-reader {
+    border: 0;
+    box-shadow: none;
+  }
+
+  .material-section {
+    break-inside: avoid;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
